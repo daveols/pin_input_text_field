@@ -19,6 +19,11 @@ class PinInputTextField extends StatefulWidget {
   /// Decorate the pin.
   final PinDecoration decoration;
 
+  /// Enable autofill of the input using [AutofillHints.oneTimeCode]
+  ///
+  /// Defaults to true
+  final bool enableCodeAutofill;
+
   /// Just like [TextField]'s inputFormatter.
   final List<TextInputFormatter> inputFormatters;
 
@@ -60,6 +65,7 @@ class PinInputTextField extends StatefulWidget {
     this.pinLength: _kDefaultPinLength,
     this.onSubmit,
     this.decoration: _kDefaultDecoration,
+    this.enableCodeAutofill = true,
     List<TextInputFormatter> inputFormatter,
     this.keyboardType: TextInputType.phone,
     this.controller,
@@ -207,6 +213,10 @@ class _PinInputTextFieldState extends State<PinInputTextField> {
 
         /// Hide the Cursor
         showCursor: false,
+
+        ///
+        autofillHints:
+            widget.enableCodeAutofill ? [AutofillHints.oneTimeCode] : null,
 
         /// Whether to correct the user input.
         autocorrect: widget.autocorrect,
