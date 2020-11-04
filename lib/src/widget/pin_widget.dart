@@ -313,14 +313,14 @@ class PinInputTextFormField extends FormField<String> {
     bool enabled = true,
     FormFieldSetter<String> onSaved,
     FormFieldValidator<String> validator,
-    bool autovalidate = false,
+    AutovalidateMode autovalidateMode = AutovalidateMode.disabled,
     ValueChanged<String> onChanged,
     TextCapitalization textCapitalization,
     bool autocorrect = false,
     bool enableInteractiveSelection = false,
     ToolbarOptions toolbarOptions,
   })  : assert(initialValue == null || controller == null),
-        assert(autovalidate != null),
+        assert(autovalidateMode != null),
         assert(pinLength != null && pinLength > 0),
 
         /// pinLength must larger than 0.
@@ -363,7 +363,7 @@ class PinInputTextFormField extends FormField<String> {
               }
               return result;
             },
-            autovalidate: autovalidate,
+            autovalidateMode: autovalidateMode,
             enabled: enabled,
             builder: (FormFieldState<String> field) {
               final _PinInputTextFormFieldState state = field;
