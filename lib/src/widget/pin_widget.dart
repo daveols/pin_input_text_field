@@ -214,7 +214,7 @@ class _PinInputTextFieldState extends State<PinInputTextField> {
         /// Hide the Cursor
         showCursor: false,
 
-        ///
+        /// Autofill hints for the underlying platform.
         autofillHints:
             widget.enableCodeAutofill ? [AutofillHints.oneTimeCode] : null,
 
